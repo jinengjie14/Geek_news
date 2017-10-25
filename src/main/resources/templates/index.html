@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
 <title>index</title>
 <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
 <link rel="stylesheet" href="../static/fonts/font-awesome.min.css" th:href="@{/fonts/font-awesome.min.css}">
@@ -9,6 +10,21 @@
 </head>
 
 <body>
+<nav class="nav navbar-default navbar-fixed-top" id="nav1">
+    <div class="container-yzw">
+        <div class="navbar-brand"><h3>Geek News</h3></div>
+        <div class="collapse navbar-collapse" style="float: right;" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+        </div>
+    </div>
+</nav>
 <div class="geek">
     <div class="left-container">
         <div class="left-layout-container">
@@ -17,10 +33,10 @@
             </div>
             <ul class="left-menu">
                 <li class="">
-                    <div class="to_pub text-center"><a href="#" class="start_cmmde"> <i class="fa fa-link"></i><span>发布文章</span> </a></div>
+                    <div class="to_pub text-center"><a href="/newsinput" class="start_cmmde"> <i class="fa fa-link"></i><span>发布文章</span> </a></div>
                 </li>
-                <li class="theme-menu"> <span class="toggle-subnav">热门主题</span> <i class="fa fa-angle-down"></i>
-                    <dl class="hot_forum">
+                <li class="theme-menu"> <span class="toggle-subnav">热门主题</span> <a href="#" class="flip"><i class="fa fa-angle-down"></i></a>
+                    <dl class="hot_forum start">
                         <a href="#" title="物联网（IoT）"> <img src="/images/loT.jpg" alt=""> </a> <a href="#" title="Android开发者"> <img src="/images/android.png" alt=""> </a> <a href="#" title="Java开发者"> <img src="/images/java.jpg" alt=""> </a> <a href="#" title="安全"> <img src="/images/security.jpg" alt=""> </a> <a href="#" title="潜水猿"> <img src="/images/cry.jpeg" alt=""> </a>
                     </dl>
                 </li>
@@ -37,7 +53,7 @@
                     <a class="navbar-brand" href="#">Geek News</a> </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">个人主页<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="#">个人主页</a></li>
                         <li><a href="#">发布文章</a></li>
                         <li><a href="#">发布图文</a></li>
                         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">热门主题<span class="caret"></span></a>
@@ -50,6 +66,12 @@
                             </ul>
                         </li>
                     </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -59,12 +81,7 @@
             <li><span class="tag tag-unchecked">紧急: ★</span></li>
             <li><span class="tag tag-unchecked">紧急: ★★</span></li>
             <li><span class="tag tag-unchecked">紧急: ★★</span></li>
-            <li><span class="tag tag-unchecked">紧急: ★★</span></li>
             <li><span class="tag tag-unchecked">紧急: ★★★</span></li>
-            <li><span class="tag tag-unchecked">重要: ★</span></li>
-            <li><span class="tag tag-unchecked">重要: ★</span></li>
-            <li><span class="tag tag-unchecked">重要: ★</span></li>
-            <li><span class="tag tag-unchecked">重要: ★★</span></li>
             <li><span class="tag tag-unchecked">重要: ★★★</span></li>
             <li><span class="tag tag-unchecked">重要: ★★★</span></li>
         </ul>
@@ -79,7 +96,7 @@
                     <dd data-dsm="post" data-poputype="feed" data-feed-show="true" class="tracking-ad" data-mod="popu_81">
                         <div class="list_ad"> <span> <a data-pjax="" class="link_pjax" tabindex="0" href="#" title="点击查看详情" target="_blank"></a> </span> </div>
                         <div class="list_ad_mobile"> <span> <a class="link_pjax" tabindex="0" href="#" title="点击查看详情" target="_blank"></a> </span> </div>
-                        <span> <a href="#" class="title" target="_blank">【初学者必读】能让你月薪过万的5大web前端核心技能</a> </span>
+                        <span> <a href="/newsview" class="title" target="_blank">【初学者必读】能让你月薪过万的5大web前端核心技能</a> </span>
                         <ul class="list-inline">
                             <li><i class="fa fa-file-text-o"></i></li>
                             <li>24分钟前</li>
@@ -379,6 +396,18 @@
     </div>
 </div>
 <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script> 
-<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script> 
+<script>
+	function F_Open_dialog() 
+{ 
+document.getElementById("btn_file").click(); 
+}
+	 
+$(document).ready(function(){
+$(".flip").click(function(){
+$(".start").toggle(500);
+});
+});
+</script>
 </body>
 </html>
